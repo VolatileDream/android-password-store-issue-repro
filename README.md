@@ -14,6 +14,8 @@ Steps to highlight a compatibility issue between [pass] and [Android-Password-St
     - `> export PASSWORD_STORE_DIR=$PWD/password-store`
     - `> pass init 9FFAABCC1F7D00CE40A1EE1FED31C0DBA11F5155`
     - (At this point [pass] sees the git repo and starts creating commits too)
+4. Add an entry to the [pass] store
+    - `> echo "abc 123" | pass insert -m test-BA11F5155`
 
 
 [pass]: https://www.passwordstore.org/
