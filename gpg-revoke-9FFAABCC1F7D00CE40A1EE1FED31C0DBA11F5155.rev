@@ -1,0 +1,35 @@
+This is a revocation certificate for the OpenPGP key:
+
+pub   rsa3072 2022-08-01 [SC] [expires: 2024-07-31]
+      9FFAABCC1F7D00CE40A1EE1FED31C0DBA11F5155
+uid          Android Password Store Reproduction <VolatileDream@users.noreply.github.com>
+
+A revocation certificate is a kind of "kill switch" to publicly
+declare that a key shall not anymore be used.  It is not possible
+to retract such a revocation certificate once it has been published.
+
+Use it to revoke this key in case of a compromise or loss of
+the secret key.  However, if the secret key is still accessible,
+it is better to generate a new revocation certificate and give
+a reason for the revocation.  For details see the description of
+of the gpg command "--generate-revocation" in the GnuPG manual.
+
+To avoid an accidental use of this file, a colon has been inserted
+before the 5 dashes below.  Remove this colon with a text editor
+before importing and publishing this revocation certificate.
+
+:-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: This is a revocation certificate
+
+iQG2BCABCgAgFiEEn/qrzB99AM5Aoe4f7THA26EfUVUFAmLn/R4CHQAACgkQ7THA
+26EfUVWBxgv/YxTFqgAmbZun2kHVvMxkz9yyIE3rYihEcC5nFpQbxXF8j5Q12ezu
+oFq1WZ4DFZrZFsK2uZltiHmtzvsOm3hY25SYCjLKpFwOovxkxBQOxYlNmbQwQqDj
+a2tHH/34vp5xi/aoh/5PAV61SnSX+iF+joq0aMxJRivQin6oCoCOEGXxUmXiF8iv
+h9PPBTqtPGeh48miF87iH/0lB8XPeM8sQmGS8Edx/596tD5Lz20Qp7Swex8DOgO7
+LTGUWpb1ynATViSQxZDEAuuySC7MJeGyidwgMF1S+t+TeTnQs/GTmgyUBsqcESzg
+d1AQYJNU7npZKoW48mYQFslA6wj0R1WjgdikbGKKCftx60hfcBXzyvnF/aui+/Wg
+HZmWDczgo/3kUGGsca3sTHoWCtA75jgUVDikXgwQb1eENjWjD4xDWxOEc+aEnJLP
+qyWaFyTlnq6KMbo2E8g3yQMzx42voe5cDttThdlpn1sqMyAcomsY94wy8MI/wwpA
+fk/O7cVkMdPF
+=s1rT
+-----END PGP PUBLIC KEY BLOCK-----
