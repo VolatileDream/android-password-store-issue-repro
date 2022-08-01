@@ -16,6 +16,24 @@ Steps to highlight a compatibility issue between [pass] and [Android-Password-St
     - (At this point [pass] sees the git repo and starts creating commits too)
 4. Add an entry to the [pass] store
     - `> echo "abc 123" | pass insert -m test-BA11F5155`
+5. Ask GPG about the stored password file `password-store/test-BA11F5155.gpg`
+    - `> gpg --list-packets password-store/test-BA11F5155.gpg`
+      ```
+      gpg: encrypted with 3072-bit RSA key, ID 6E7B4FAC4385056B, created 2022-08-01
+            "Android Password Store Reproduction <VolatileDream@users.noreply.github.com>"
+      # off=0 ctb=85 tag=1 hlen=3 plen=396
+      :pubkey enc packet: version 3, algo 1, keyid 6E7B4FAC4385056B
+        data: [3070 bits]
+      # off=399 ctb=d2 tag=18 hlen=2 plen=57 new-ctb
+      :encrypted data packet:
+        length: 57
+        mdc_method: 2
+      # off=420 ctb=cb tag=11 hlen=2 plen=14 new-ctb
+      :literal data packet:
+        mode b (62), created 1659372432, name="",
+        raw data: 8 bytes
+      ```
+    - Notice the file was encrypted to one (1) key by GPG: `6E7B4FAC4385056B`
 
 
 [pass]: https://www.passwordstore.org/
