@@ -112,6 +112,9 @@ Steps to highlight a compatibility issue between [pass] and [Android-Password-St
         raw data: 11 bytes
     ```
     - Notice, this is encrypted to **all three (3)** encryption subkeys
+9. Add this repo to [Android-Password-Store]
+10. Attempt to add new entry to the repo
+    - [Android-Password-Store] does not support `!` as a key suffix.
 
 [pass]: https://www.passwordstore.org/
 [Android-Password-Store]: https://github.com/android-password-store/Android-Password-Store/
