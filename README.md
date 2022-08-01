@@ -80,6 +80,9 @@ Steps to highlight a compatibility issue between [pass] and [Android-Password-St
     ```
     - Notice, still only one (1) encryption key was used: `6E7B4FAC4385056B`
     - `> rm README.md.gpg` (cleanup)
+8. Figure out forcing GPG to encrypt to all subkeys and update `password-store/.gpg-id`
+    - [Stack Overflow Answer](https://stackoverflow.com/questions/43732404/how-to-encrypt-by-a-subkeymultiple-subkeye-in-gpggnupg#49305986)
+    - `> echo -e '50D676A945F7873F!\n6E7B4FAC4385056B!\n7F51EC6D028FE1FD!' > password-store/.gpg-id`
 
 [pass]: https://www.passwordstore.org/
 [Android-Password-Store]: https://github.com/android-password-store/Android-Password-Store/
