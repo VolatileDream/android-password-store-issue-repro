@@ -83,6 +83,35 @@ Steps to highlight a compatibility issue between [pass] and [Android-Password-St
 8. Figure out forcing GPG to encrypt to all subkeys and update `password-store/.gpg-id`
     - [Stack Overflow Answer](https://stackoverflow.com/questions/43732404/how-to-encrypt-by-a-subkeymultiple-subkeye-in-gpggnupg#49305986)
     - `> echo -e '50D676A945F7873F!\n6E7B4FAC4385056B!\n7F51EC6D028FE1FD!' > password-store/.gpg-id`
+    - `> echo "this time?" | pass insert -m force-gpg`
+    - `> gpg --list-packets README.md.gpg`
+    ```
+      gpg: encrypted with 3072-bit ELG key, ID 7F51EC6D028FE1FD, created 2022-08-01
+            "Android Password Store Reproduction <VolatileDream@users.noreply.github.com>"
+      gpg: encrypted with 3072-bit RSA key, ID 6E7B4FAC4385056B, created 2022-08-01
+            "Android Password Store Reproduction <VolatileDream@users.noreply.github.com>"
+      gpg: encrypted with 3072-bit RSA key, ID 50D676A945F7873F, created 2022-08-01
+            "Android Password Store Reproduction <VolatileDream@users.noreply.github.com>"
+      # off=0 ctb=85 tag=1 hlen=3 plen=396
+      :pubkey enc packet: version 3, algo 1, keyid 50D676A945F7873F
+        data: [3071 bits]
+      # off=399 ctb=85 tag=1 hlen=3 plen=396
+      :pubkey enc packet: version 3, algo 1, keyid 6E7B4FAC4385056B
+        data: [3071 bits]
+      # off=798 ctb=85 tag=1 hlen=3 plen=782
+      :pubkey enc packet: version 3, algo 16, keyid 7F51EC6D028FE1FD
+        data: [3071 bits]
+        data: [3070 bits]
+      # off=1583 ctb=d2 tag=18 hlen=2 plen=60 new-ctb
+      :encrypted data packet:
+        length: 60
+        mdc_method: 2
+      # off=1604 ctb=cb tag=11 hlen=2 plen=17 new-ctb
+      :literal data packet:
+        mode b (62), created 1659374308, name="",
+        raw data: 11 bytes
+    ```
+    - Notice, this is encrypted to **all three (3)** encryption subkeys
 
 [pass]: https://www.passwordstore.org/
 [Android-Password-Store]: https://github.com/android-password-store/Android-Password-Store/
