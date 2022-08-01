@@ -11,8 +11,8 @@ Steps to highlight a compatibility issue between [pass] and [Android-Password-St
     - `rsa3072/6E7B4FAC4385056B` (new)
     - `rsa3072/50D676A945F7873F` (from creation)
 3. Setup and create [pass] password store
-    - `> export PASSWORD_STORE_DIR=$PWD`
-    - `> pass init -p ./password-store 9FFAABCC1F7D00CE40A1EE1FED31C0DBA11F5155`
+    - `> export PASSWORD_STORE_DIR=$PWD/password-store`
+    - `> pass init 9FFAABCC1F7D00CE40A1EE1FED31C0DBA11F5155`
     - (At this point [pass] sees the git repo and starts creating commits too)
 
 
