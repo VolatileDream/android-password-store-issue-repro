@@ -34,7 +34,26 @@ Steps to highlight a compatibility issue between [pass] and [Android-Password-St
         raw data: 8 bytes
       ```
     - Notice the file was encrypted to one (1) key by GPG: `6E7B4FAC4385056B`
-
+6. Attempt to make [pass] encrypt to all the encryption subkeys for `A11F5155`
+    - `> echo -e '50D676A945F7873F\n6E7B4FAC4385056B\n7F51EC6D028FE1FD' > password-store/.gpg-id`
+    - `> echo test-multi-key | pass insert -m test-three-key`
+    - `> gpg --list-packets password-store/test-three-key.gpg`
+    ```
+      gpg: encrypted with 3072-bit RSA key, ID 6E7B4FAC4385056B, created 2022-08-01
+            "Android Password Store Reproduction <VolatileDream@users.noreply.github.com>"
+      # off=0 ctb=85 tag=1 hlen=3 plen=396
+      :pubkey enc packet: version 3, algo 1, keyid 6E7B4FAC4385056B
+        data: [3072 bits]
+      # off=399 ctb=d2 tag=18 hlen=2 plen=64 new-ctb
+      :encrypted data packet:
+        length: 64
+        mdc_method: 2
+      # off=420 ctb=cb tag=11 hlen=2 plen=21 new-ctb
+      :literal data packet:
+        mode b (62), created 1659373364, name="",
+        raw data: 15 bytes
+    ```
+    - Notice that this has **not** worked, and only one key was used: `6E7B4FAC4385056B`
 
 [pass]: https://www.passwordstore.org/
 [Android-Password-Store]: https://github.com/android-password-store/Android-Password-Store/
