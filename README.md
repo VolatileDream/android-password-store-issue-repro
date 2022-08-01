@@ -114,7 +114,10 @@ Steps to highlight a compatibility issue between [pass] and [Android-Password-St
     - Notice, this is encrypted to **all three (3)** encryption subkeys
 9. Add this repo to [Android-Password-Store]
 10. Attempt to add new entry to the repo
+    - `Found .gpg-id , but it contains an invalid key ID, fingerprint or user ID`
+11. Look at [GPG Identifier parsing code](https://github.com/android-password-store/Android-Password-Store/blob/develop/crypto-pgpainless/src/main/kotlin/app/passwordstore/crypto/GpgIdentifier.kt)
     - [Android-Password-Store] does not support `!` as a key suffix.
+
 
 [pass]: https://www.passwordstore.org/
 [Android-Password-Store]: https://github.com/android-password-store/Android-Password-Store/
